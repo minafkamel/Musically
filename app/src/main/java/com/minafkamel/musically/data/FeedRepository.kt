@@ -4,7 +4,7 @@ import io.reactivex.Single
 
 class FeedRepository(private val feedApi: FeedApi) {
 
-    fun getFeed(): Single<List<Song>> {
+    fun getFeed(): Single<List<SongRaw>> {
         return feedApi.getFeed()
     }
 }

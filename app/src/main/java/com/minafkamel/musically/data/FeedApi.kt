@@ -6,6 +6,6 @@ import retrofit2.http.GET
 interface FeedApi {
 
     @GET("feed/?type=popular&page=1&count=5")
-    fun getFeed(): Single<List<Song>>
+    fun getFeed(): Single<List<SongRaw>>
 
 }
