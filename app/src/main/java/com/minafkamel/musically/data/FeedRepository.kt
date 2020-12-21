@@ -11,4 +11,8 @@ class FeedRepository(private val feedApi: FeedApi) {
     fun getSingleArtist(permalink: String): Single<SingleArtistRaw> {
         return feedApi.getArtist(permalink)
     }
+
+    fun getSongs(permalink: String): Single<List<SongRaw>> {
+        return feedApi.getSongs(permalink)
+    }
 }

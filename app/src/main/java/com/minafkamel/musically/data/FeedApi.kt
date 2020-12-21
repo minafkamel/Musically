@@ -11,4 +11,8 @@ interface FeedApi {
 
     @GET("{permalink}")
     fun getArtist(@Path("permalink") permalink: String): Single<SingleArtistRaw>
+
+    @GET("{permalink}/?type=tracks&page=1&count=5")
+    fun getSongs(@Path("permalink") permalink: String): Single<List<SongRaw>>
+
 }
