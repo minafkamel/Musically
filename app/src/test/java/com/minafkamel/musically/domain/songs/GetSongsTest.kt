@@ -26,7 +26,7 @@ class GetSongsTest : TestCase() {
 
     @Test
     fun `returns list of Songs from repository`() {
-        val songs = listOf(SongRaw(126, "thumb1"), SongRaw(312, "thumb2"))
+        val songs = listOf(SongRaw("title1", 126, "thumb1"), SongRaw("titl2",312, "thumb2"))
         ArrangeBuilder().withSongs(songs)
 
         val testObserver = getSongs.build(GetSongs.Params("")).test()

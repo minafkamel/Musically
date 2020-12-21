@@ -2,4 +2,6 @@
     <string name="app_name">Musically</string>
 
     <string name="artist_tracks_count">\u0020tracks</string>
+
+    <string name="song_duration">Duration: %1$s minutes</string>
 </resources>
