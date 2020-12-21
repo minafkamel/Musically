@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Musically</string>
+
+    <string name="artist_tracks_count">\u0020tracks</string>
 </resources>

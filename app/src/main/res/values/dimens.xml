@@ -7,4 +7,7 @@
     <dimen name="artist_desc_margin">10dp</dimen>
 
     <dimen name="artist_title_size">20sp</dimen>
+
+
+    <dimen name="default_padding">16dp</dimen>
 </resources>
