@@ -1,34 +1,38 @@
 package com.minafkamel.musically.domain.artists
 
 import com.minafkamel.musically.data.FeedRepository
-import com.minafkamel.musically.data.SongRaw
+import com.minafkamel.musically.data.PopularRaw
+import com.minafkamel.musically.data.SingleArtistRaw
 import com.minafkamel.musically.domain.base.NoParams
 import com.minafkamel.musically.domain.base.UseCase
 import io.reactivex.Single
 
+/**
+ * This use case calls the popular and the single artist Apis and returns a list of [Artist]
+ */
 class GetArtists(private val feedRepository: FeedRepository) :
     UseCase<NoParams, List<Artist>> {
 
     override fun build(params: NoParams): Single<List<Artist>> {
-        return feedRepository.getFeed()
-            .map { createArtists(it) }
+        return feedRepository.getPopular()
+            .flattenAsObservable { it }
+            .flatMapSingle { popular -> getSingleArtistAndMapToArtist(popular) }
+            .toList()
     }
 
-    private fun createArtists(songsRaw: List<SongRaw>): List<Artist> {
-        require(songsRaw.isNotEmpty()) { "songsRaw is empty" }
-        return songsRaw.map {
-            createArtist((it.userRaw))
-        }
+    private fun getSingleArtistAndMapToArtist(popular: PopularRaw): Single<Artist> {
+        return feedRepository.getSingleArtist(popular.userRaw.permalink)
+            .map { createArtist(popular, it) }
     }
 
-    private fun createArtist(userRaw: SongRaw.UserRaw?): Artist {
-        with(requireNotNull(userRaw) { "userRaw is null" }) {
-            val id = requireNotNull(id) { "id is null" }
-            val userName = requireNotNull(userName) { "userName is null" }
-            val caption = requireNotNull(caption) { "caption is null" }
-            val avatarUrl = requireNotNull(avatarUrl) { "avatarUrl is null" }
-
-            return Artist(id, userName, caption, avatarUrl)
-        }
+    private fun createArtist(popular: PopularRaw, singleArtistRaw: SingleArtistRaw): Artist {
+        return Artist(
+            popular.userRaw.id,
+            popular.userRaw.userName,
+            popular.userRaw.caption,
+            popular.userRaw.avatarUrl,
+            singleArtistRaw.trackCount,
+            singleArtistRaw.description
+        )
     }
 }
