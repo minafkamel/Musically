@@ -8,7 +8,7 @@ import com.minafkamel.musically.domain.base.UseCase
 import io.reactivex.Single
 
 /**
- * This use case calls the popular and the single artist Apis and returns a list of [Artist]
+ * This use case calls the popular and the single artist Apis via [FeedRepository] and returns a list of [Artist]
  */
 class GetArtists(private val feedRepository: FeedRepository) :
     UseCase<NoParams, List<Artist>> {
