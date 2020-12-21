@@ -65,4 +65,6 @@ dependencies {
     testImplementation Dependencies.mockito
     testImplementation Dependencies.mockitoKotlin
     testImplementation Dependencies.archComponentsTest
+
+    implementation Dependencies.timber
 }

@@ -29,6 +29,7 @@ object Versions {
     const val mockitoKotlin = "2.2.0"
     const val junitExt = "1.1.1"
     const val archComponentsTest= "1.1.0"
+    const val timber = "4.7.1"
 
     // Other
     const val koin = "2.2.0"
@@ -90,4 +91,6 @@ object Dependencies {
     const val junitExt = "androidx.test.ext:junit:${Versions.junitExt}"
     const val archComponentsTest = "android.arch.core:core-testing:${Versions.archComponentsTest}"
 
+    // Logging
+    const val timber = "com.jakewharton.timber:timber:${Versions.timber}"
 }

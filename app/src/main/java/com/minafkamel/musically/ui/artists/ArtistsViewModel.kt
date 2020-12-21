@@ -5,6 +5,7 @@ import com.minafkamel.musically.domain.artists.GetArtists
 import com.minafkamel.musically.domain.base.NoParams
 import com.minafkamel.musically.extensions.withDefaultSchedulers
 import com.minafkamel.musically.ui.base.BaseViewModel
+import timber.log.Timber
 
 class ArtistsViewModel(
     private val getArtists: GetArtists,
@@ -20,6 +21,10 @@ class ArtistsViewModel(
             .doOnSubscribe { progressLiveData.postValue(true) }
             .doAfterTerminate { progressLiveData.postValue(false) }
             .withDefaultSchedulers()
-            .subscribeToDisposeLater({ artistsLiveData.postValue(it) }, { it })
+            .subscribeToDisposeLater({ artistsLiveData.postValue(it) }, { Timber.tag(TAG).e(it) })
+    }
+
+    companion object {
+        const val TAG = "ArtistsViewModel"
     }
 }
