@@ -10,16 +10,16 @@ import io.reactivex.disposables.CompositeDisposable
  * Base view model for all view models in the app.
  * Holds a [CompositeDisposable] that is cleared when view model is no longer in use.
  */
-abstract class BaseViewModel : ViewModel(), LifecycleObserver {
+abstract class BaseViewModel : ViewModel(), LifecycleObserver, Rx {
 
-    val d = CompositeDisposable()
+    override val d: CompositeDisposable = CompositeDisposable()
 
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
     fun onCreate() {
-        onBind(d)
+        onBind()
     }
 
-    abstract fun onBind(d: CompositeDisposable)
+    abstract fun onBind()
 
     override fun onCleared() {
         d.clear()
