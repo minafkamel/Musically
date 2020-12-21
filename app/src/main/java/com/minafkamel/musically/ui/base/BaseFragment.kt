@@ -5,7 +5,6 @@ import android.view.View
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LifecycleOwner
-import org.koin.androidx.viewmodel.compat.ViewModelCompat
 
 /**
  * Base Fragment for all fragments in the app.
@@ -16,14 +15,14 @@ abstract class BaseFragment<VM : BaseViewModel>(
     @LayoutRes layoutResId: Int
 ) : Fragment(layoutResId), LifecycleOwner {
 
-    lateinit var viewModel: VM
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = ViewModelCompat.getViewModel(this, clazz)
-        lifecycle.addObserver(viewModel)
+        lifecycle.addObserver(passViewModel())
         observeLiveData()
     }
+
+    abstract fun passViewModel(): VM
 
     abstract fun observeLiveData()
 }

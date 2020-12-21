@@ -1,10 +1,14 @@
 package com.minafkamel.musically.ui.songs
 
-import android.os.Bundle
+import androidx.core.os.bundleOf
 import com.minafkamel.musically.R
 import com.minafkamel.musically.ui.base.BaseFragment
+import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.core.parameter.parametersOf
 
 class SongsFragment : BaseFragment<SongsViewModel>(SongsViewModel::class.java, R.layout.f_songs) {
+
+    private val viewModel: SongsViewModel by viewModel { parametersOf(arguments?.get(BUNDLE_PERMALINK) as String) }
 
     override fun observeLiveData() {}
 
@@ -14,9 +18,10 @@ class SongsFragment : BaseFragment<SongsViewModel>(SongsViewModel::class.java, R
         fun newInstance(permalink: String): SongsFragment {
             return SongsFragment()
                 .apply {
-                    arguments = Bundle()
-                        .apply { putString(BUNDLE_PERMALINK, permalink) }
+                    arguments = bundleOf(BUNDLE_PERMALINK to permalink)
                 }
         }
     }
+
+    override fun passViewModel() = viewModel
 }
