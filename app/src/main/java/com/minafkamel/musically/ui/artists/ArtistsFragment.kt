@@ -25,7 +25,6 @@ class ArtistsFragment :
 
     }
 
-
     companion object {
         fun newInstance() = ArtistsFragment()
     }

@@ -35,12 +35,12 @@ class ArtistsMapperTest : TestCase() {
         val tracksString = " tracks"
         val expectedTracksString = "10 tracks"
         ArrangeBuilder().withString(tracksString)
-        val artist = Artist(id, name, caption, url, tracksCount, description)
-        val expectedEntity = ArtistViewEntity(id, name, caption, description, expectedTracksString, url)
+        val artists = listOf(Artist(id, name, caption, url, tracksCount, description))
+        val entities = listOf(ArtistViewEntity(id, name, caption, description, expectedTracksString, url))
 
-        val entity = mapper.toModel(artist)
+        val entity = mapper.toModel(artists)
 
-        assertEquals(expectedEntity, entity)
+        assertEquals(entities, entity)
     }
 
     inner class ArrangeBuilder {

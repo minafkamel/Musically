@@ -6,20 +6,23 @@ import com.minafkamel.musically.ui.base.Mapper
 import com.minafkamel.musically.util.StringProvider
 
 /**
- * Maps the [Artist] object to [ArtistViewEntity] and does any needed formatting
+ * Maps a list of [Artist] to a list of [ArtistViewEntity] and does any needed formatting
  * ]
  */
-class ArtistsMapper(private val stringProvider: StringProvider) : Mapper<Artist, ArtistViewEntity> {
+class ArtistsMapper(private val stringProvider: StringProvider) :
+    Mapper<List<Artist>, List<ArtistViewEntity>> {
 
-    override fun toModel(input: Artist): ArtistViewEntity {
-        return ArtistViewEntity(
-            input.id,
-            input.name,
-            input.caption,
-            input.description,
-            mapTracksCount(input.trackCount),
-            input.url
-        )
+    override fun toModel(input: List<Artist>): List<ArtistViewEntity> {
+        return input.map {
+            ArtistViewEntity(
+                it.id,
+                it.name,
+                it.caption,
+                it.description,
+                mapTracksCount(it.trackCount),
+                it.url
+            )
+        }
     }
 
     private fun mapTracksCount(trackCount: Int): String {

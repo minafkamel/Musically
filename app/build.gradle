@@ -64,4 +64,5 @@ dependencies {
     testImplementation Dependencies.hamcrest
     testImplementation Dependencies.mockito
     testImplementation Dependencies.mockitoKotlin
+    testImplementation Dependencies.archComponentsTest
 }
