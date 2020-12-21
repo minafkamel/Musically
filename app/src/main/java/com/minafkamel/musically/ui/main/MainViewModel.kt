@@ -5,6 +5,5 @@ import io.reactivex.disposables.CompositeDisposable
 
 class MainViewModel : BaseViewModel() {
 
-    override fun onBind(d: CompositeDisposable) {
-    }
+    override fun onBind(d: CompositeDisposable) {}
 }
