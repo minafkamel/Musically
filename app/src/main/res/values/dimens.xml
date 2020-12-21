@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="artist_image_dimen">100dp</dimen>
+    <dimen name="artist_image_margin">30dp</dimen>
+    <dimen name="artist_title_margin">6dp</dimen>
+    <dimen name="artist_desc_margin">10dp</dimen>
+
+    <dimen name="artist_title_size">20sp</dimen>
+</resources>
