@@ -3,6 +3,7 @@ package com.minafkamel.musically.ui.artists
 import androidx.core.view.isVisible
 import com.minafkamel.musically.R
 import com.minafkamel.musically.ui.base.BaseFragment
+import com.minafkamel.musically.ui.main.MainActivity
 import kotlinx.android.synthetic.main.f_artists.*
 
 class ArtistsFragment :
@@ -22,7 +23,7 @@ class ArtistsFragment :
     }
 
     private fun handleArtistClick(artistId: String) {
-
+        (requireActivity() as MainActivity).artistClicked(artistId)
     }
 
     companion object {
