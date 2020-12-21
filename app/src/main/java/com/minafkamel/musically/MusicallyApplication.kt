@@ -16,7 +16,17 @@ class MusicallyApplication : Application() {
             androidLogger(Level.DEBUG)
             androidContext(this@MusicallyApplication)
             printLogger()
-            modules(listOf(networkModule, apiModule, dataModule, domainModule, viewModelModule))
+            modules(
+                listOf(
+                    networkModule,
+                    apiModule,
+                    dataModule,
+                    domainModule,
+                    viewModelModule,
+                    mapperModule,
+                    utilModule
+                )
+            )
         }
     }
 }
