@@ -18,8 +18,13 @@ class ArtistsFragment :
     }
 
     private fun showArtists(artists: List<ArtistViewEntity>) {
-        recyclerViewArtists.adapter = ArtistsAdapter(artists)
+        recyclerViewArtists.adapter = ArtistsAdapter(artists) { handleArtistClick(it) }
     }
+
+    private fun handleArtistClick(artistId: String) {
+
+    }
+
 
     companion object {
         fun newInstance() = ArtistsFragment()
