@@ -27,7 +27,7 @@ class GetArtists(private val feedRepository: FeedRepository) :
 
     private fun createArtist(popular: PopularRaw, singleArtistRaw: SingleArtistRaw): Artist {
         return Artist(
-            popular.userRaw.id,
+            popular.userRaw.permalink,
             popular.userRaw.userName,
             popular.userRaw.caption,
             popular.userRaw.avatarUrl,

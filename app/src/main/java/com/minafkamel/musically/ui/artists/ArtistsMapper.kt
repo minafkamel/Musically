@@ -15,7 +15,7 @@ class ArtistsMapper(private val stringProvider: StringProvider) :
     override fun toModel(input: List<Artist>): List<ArtistViewEntity> {
         return input.map {
             ArtistViewEntity(
-                it.id,
+                it.permalink,
                 it.name,
                 it.caption,
                 it.description,

@@ -26,7 +26,7 @@ class ArtistsMapperTest : TestCase() {
 
     @Test
     fun `maps from Artist to ArtistViewEntity`() {
-        val id = "id"
+        val permalink = "permalink"
         val name = "name"
         val caption = "caption"
         val url = "url"
@@ -35,8 +35,10 @@ class ArtistsMapperTest : TestCase() {
         val tracksString = " tracks"
         val expectedTracksString = "10 tracks"
         ArrangeBuilder().withString(tracksString)
-        val artists = listOf(Artist(id, name, caption, url, tracksCount, description))
-        val entities = listOf(ArtistViewEntity(id, name, caption, description, expectedTracksString, url))
+        val artists = listOf(Artist(permalink, name, caption, url, tracksCount, description))
+        val entities = listOf(
+            ArtistViewEntity(permalink, name, caption, description, expectedTracksString, url)
+        )
 
         val entity = mapper.toModel(artists)
 

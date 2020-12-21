@@ -9,13 +9,13 @@ class SongsFragment : BaseFragment<SongsViewModel>(SongsViewModel::class.java, R
     override fun observeLiveData() {}
 
     companion object {
-        private const val BUNDLE_ARTIST_ID = "BUNDLE_ARTIST_ID"
+        private const val BUNDLE_PERMALINK = "BUNDLE_PERMALINK"
 
-        fun newInstance(artistId: String): SongsFragment {
+        fun newInstance(permalink: String): SongsFragment {
             return SongsFragment()
                 .apply {
                     arguments = Bundle()
-                        .apply { putString(BUNDLE_ARTIST_ID, artistId) }
+                        .apply { putString(BUNDLE_PERMALINK, permalink) }
                 }
         }
     }

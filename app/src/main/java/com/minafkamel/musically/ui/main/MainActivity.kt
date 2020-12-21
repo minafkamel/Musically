@@ -22,9 +22,9 @@ class MainActivity : BaseActivity<MainViewModel>(MainViewModel::class.java, R.la
             .commit()
     }
 
-    fun artistClicked(artistId: String) {
+    fun artistClicked(permalink: String) {
         supportFragmentManager.beginTransaction()
-            .replace(R.id.frameLayout, SongsFragment.newInstance(artistId))
+            .replace(R.id.frameLayout, SongsFragment.newInstance(permalink))
             .commit()
     }
 }

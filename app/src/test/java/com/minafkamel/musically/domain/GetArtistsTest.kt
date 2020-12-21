@@ -33,7 +33,6 @@ class GetArtistsTest : TestCase() {
 
     @Test
     fun `returns list of Artists from repository`() {
-        val id = "12"
         val userName = "userName"
         val permalink = "permalink"
         val caption = "caption"
@@ -41,11 +40,11 @@ class GetArtistsTest : TestCase() {
         val trackCount = 1
         val description = "description"
         val popularRaw = singletonList(
-            PopularRaw(PopularRaw.UserRaw(id, permalink, userName, caption, avatarUrl))
+            PopularRaw(PopularRaw.UserRaw(permalink, userName, caption, avatarUrl))
         )
         val singleArtistRaw = SingleArtistRaw(trackCount, description)
         val expectedArtists =
-            listOf(Artist(id, userName, caption, avatarUrl, trackCount, description))
+            listOf(Artist(permalink, userName, caption, avatarUrl, trackCount, description))
         ArrangeBuilder()
             .withPopular(popularRaw)
             .withSingleArtist(singleArtistRaw)

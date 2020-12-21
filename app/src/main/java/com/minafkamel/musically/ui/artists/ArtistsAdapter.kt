@@ -31,7 +31,7 @@ class ArtistsAdapter(
     ) :
         RecyclerView.ViewHolder(containerView), LayoutContainer {
         fun onBind(model: ArtistViewEntity) {
-            itemView.setOnClickListener { clickListener.invoke(model.id) }
+            itemView.setOnClickListener { clickListener.invoke(model.permalink) }
             textViewTitle.text = model.title
             textViewDescription.text = model.description
             textViewTracks.text = model.tracksCount
