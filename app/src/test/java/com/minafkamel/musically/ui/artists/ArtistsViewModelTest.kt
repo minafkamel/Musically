@@ -41,14 +41,14 @@ class ArtistsViewModelTest : TestCase() {
     }
 
     @Test
-    fun `Given that onBind is called  Then calls GetArtists use case and maps and posts value`() {
+    fun `Given that onViewCreate is called  Then calls GetArtists use case and maps and posts value`() {
         val artists = listOf(Artist("", "", "", "", 0, ""))
         val entities = listOf(ArtistViewEntity("", "", "", "", "", ""))
         ArrangeBuilder()
             .withArtists(artists)
             .withViewEntity(entities)
 
-        artistsViewModel.onBind()
+        artistsViewModel.onViewCreate()
 
         verify(getArtists).build(NoParams)
         verify(artistsMapper).toModel(artists)

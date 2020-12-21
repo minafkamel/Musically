@@ -4,5 +4,5 @@ import com.minafkamel.musically.ui.base.BaseViewModel
 
 class SongsViewModel : BaseViewModel() {
 
-    override fun onBind() {}
+    override fun onViewCreate() {}
 }

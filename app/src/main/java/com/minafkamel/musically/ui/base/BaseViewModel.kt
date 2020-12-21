@@ -16,10 +16,10 @@ abstract class BaseViewModel : ViewModel(), LifecycleObserver, Rx {
 
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
     fun onCreate() {
-        onBind()
+        onViewCreate()
     }
 
-    abstract fun onBind()
+    abstract fun onViewCreate()
 
     override fun onCleared() {
         d.clear()

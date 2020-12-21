@@ -15,7 +15,7 @@ class ArtistsViewModel(
     val artistsLiveData: MutableLiveData<List<ArtistViewEntity>> = MutableLiveData()
     val progressLiveData: MutableLiveData<Boolean> = MutableLiveData()
 
-    override fun onBind() {
+    override fun onViewCreate() {
         getArtists.build(NoParams)
             .map { artistsMapper.toModel(it) }
             .doOnSubscribe { progressLiveData.postValue(true) }
