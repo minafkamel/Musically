@@ -14,10 +14,13 @@ class ArtistsViewModel(
 ) : BaseViewModel() {
 
     val artistsLiveData: MutableLiveData<List<ArtistViewEntity>> = MutableLiveData()
+    val progressLiveData: MutableLiveData<Boolean> = MutableLiveData()
 
     override fun onBind(d: CompositeDisposable) {
         d.add(getArtists.build(NoParams)
             .map { artist -> artist.map { artistsMapper.toModel(it) } }
+            .doOnSubscribe { progressLiveData.postValue(true) }
+            .doAfterTerminate { progressLiveData.postValue(false) }
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ artistsLiveData.postValue(it) }, { it })

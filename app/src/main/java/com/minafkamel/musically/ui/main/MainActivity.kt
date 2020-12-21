@@ -11,6 +11,11 @@ class MainActivity : BaseActivity<MainViewModel>(MainViewModel::class.java, R.la
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        loadArtistsFragment()
+    }
+
+    private fun loadArtistsFragment() {
         supportFragmentManager.beginTransaction()
             .add(R.id.frameLayout, ArtistsFragment.newInstance())
             .commit()
