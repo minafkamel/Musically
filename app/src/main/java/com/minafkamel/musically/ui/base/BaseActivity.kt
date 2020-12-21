@@ -4,7 +4,6 @@ import android.os.Bundle
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.LifecycleOwner
-import org.koin.androidx.viewmodel.compat.ViewModelCompat.getViewModel
 
 /**
  * Base activity for all activities in the app.
@@ -15,14 +14,13 @@ abstract class BaseActivity<VM : BaseViewModel>(
     @LayoutRes layoutResId: Int
 ) : AppCompatActivity(layoutResId), LifecycleOwner {
 
-    lateinit var viewModel: VM
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel = getViewModel(this, clazz)
-        lifecycle.addObserver(viewModel)
+        lifecycle.addObserver(passViewModel())
         observeLiveData()
     }
+
+    abstract fun passViewModel(): VM
 
     abstract fun observeLiveData()
 }

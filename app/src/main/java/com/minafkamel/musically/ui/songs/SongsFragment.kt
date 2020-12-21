@@ -6,7 +6,7 @@ import com.minafkamel.musically.ui.base.BaseFragment
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
 
-class SongsFragment : BaseFragment<SongsViewModel>(SongsViewModel::class.java, R.layout.f_songs) {
+class SongsFragment : BaseFragment<SongsViewModel>(R.layout.f_songs) {
 
     private val viewModel: SongsViewModel by viewModel { parametersOf(arguments?.get(BUNDLE_PERMALINK) as String) }
 

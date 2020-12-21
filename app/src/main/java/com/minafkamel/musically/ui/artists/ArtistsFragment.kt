@@ -5,9 +5,11 @@ import com.minafkamel.musically.R
 import com.minafkamel.musically.ui.base.BaseFragment
 import com.minafkamel.musically.ui.main.MainActivity
 import kotlinx.android.synthetic.main.f_artists.*
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class ArtistsFragment :
-    BaseFragment<ArtistsViewModel>(ArtistsViewModel::class.java, R.layout.f_artists) {
+class ArtistsFragment : BaseFragment<ArtistsViewModel>(R.layout.f_artists) {
+
+    private val viewModel: ArtistsViewModel by viewModel()
 
     override fun observeLiveData() {
         viewModel.artistsLiveData.observe(this, { showArtists(it) })
@@ -25,6 +27,8 @@ class ArtistsFragment :
     private fun handleArtistClick(artistId: String) {
         (requireActivity() as MainActivity).artistClicked(artistId)
     }
+
+    override fun passViewModel() = viewModel
 
     companion object {
         fun newInstance() = ArtistsFragment()

@@ -5,8 +5,11 @@ import com.minafkamel.musically.R
 import com.minafkamel.musically.ui.artists.ArtistsFragment
 import com.minafkamel.musically.ui.base.BaseActivity
 import com.minafkamel.musically.ui.songs.SongsFragment
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : BaseActivity<MainViewModel>(MainViewModel::class.java, R.layout.a_main) {
+
+    private val viewModel: MainViewModel by viewModel()
 
     override fun observeLiveData() {}
 
@@ -27,4 +30,6 @@ class MainActivity : BaseActivity<MainViewModel>(MainViewModel::class.java, R.la
             .replace(R.id.frameLayout, SongsFragment.newInstance(permalink))
             .commit()
     }
+
+    override fun passViewModel() = viewModel
 }

@@ -8,13 +8,10 @@ import androidx.lifecycle.LifecycleOwner
 
 /**
  * Base Fragment for all fragments in the app.
- * A [BaseViewModel] should be also declared via generic parameter <VM: BaseViewModel> to provide an instance when the fragment is created.
+ * A [BaseViewModel] should be also declared via generic parameter <VM: BaseViewModel>
  */
-abstract class BaseFragment<VM : BaseViewModel>(
-    private val clazz: Class<VM>,
-    @LayoutRes layoutResId: Int
-) : Fragment(layoutResId), LifecycleOwner {
-
+abstract class BaseFragment<VM : BaseViewModel>(@LayoutRes layoutResId: Int) :
+    Fragment(layoutResId), LifecycleOwner {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
