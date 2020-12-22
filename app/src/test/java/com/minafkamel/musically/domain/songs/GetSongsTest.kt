@@ -14,6 +14,7 @@ import org.mockito.junit.MockitoJUnitRunner
 
 @RunWith(MockitoJUnitRunner::class)
 class GetSongsTest : TestCase() {
+
     @Mock
     lateinit var feedRepository: FeedRepository
 

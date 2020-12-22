@@ -15,5 +15,5 @@ class GetSongs(private val feedRepository: FeedRepository) :
         return feedRepository.getSongs(params.permalink)
     }
 
-    class Params(val permalink: String)
+    data class Params(val permalink: String)
 }
