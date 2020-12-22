@@ -28,6 +28,7 @@ class MainActivity : BaseActivity<MainViewModel>(MainViewModel::class.java, R.la
     fun artistClicked(permalink: String) {
         supportFragmentManager.beginTransaction()
             .replace(R.id.frameLayout, SongsFragment.newInstance(permalink))
+            .addToBackStack(SongsFragment.TAG)
             .commit()
     }
 

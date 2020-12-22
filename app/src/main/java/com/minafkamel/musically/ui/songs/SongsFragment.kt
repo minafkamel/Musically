@@ -27,7 +27,10 @@ class SongsFragment : BaseFragment<SongsViewModel>(R.layout.f_recycler_view) {
         recyclerView.adapter = SongsAdapter(songs) {}
     }
 
+    override fun passViewModel() = viewModel
+
     companion object {
+        const val TAG = "SongsFragment"
         private const val BUNDLE_PERMALINK = "BUNDLE_PERMALINK"
 
         fun newInstance(permalink: String): SongsFragment {
@@ -37,6 +40,4 @@ class SongsFragment : BaseFragment<SongsViewModel>(R.layout.f_recycler_view) {
                 }
         }
     }
-
-    override fun passViewModel() = viewModel
 }
