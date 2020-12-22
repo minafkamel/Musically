@@ -1,7 +1,12 @@
 <resources>
     <string name="app_name">Musically</string>
 
+    <!--Artists-->
     <string name="artist_tracks_count">\u0020tracks</string>
 
+    <!--Song-->
     <string name="song_duration">Duration: %1$s minutes</string>
+
+    <!--Streaming-->
+    <string name="streaming_select">Select an artist then a song to play</string>
 </resources>

@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!--Artist-->
     <dimen name="artist_image_dimen">100dp</dimen>
     <dimen name="artist_image_margin">30dp</dimen>
     <dimen name="artist_title_margin">6dp</dimen>
     <dimen name="artist_desc_margin">10dp</dimen>
     <dimen name="artist_title_size">20sp</dimen>
 
+    <!--Song-->
     <dimen name="song_image_dimen">50dp</dimen>
 
-    <dimen name="default_padding">16dp</dimen>
+    <!--Streaming-->
+    <dimen name="streaming_select_size">16sp</dimen>
 
+    <!--Other-->
+    <dimen name="default_padding">16dp</dimen>
     <dimen name="progress_size">45dp</dimen>
 </resources>
