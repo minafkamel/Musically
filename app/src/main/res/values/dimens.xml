@@ -7,6 +7,8 @@
     <dimen name="artist_desc_margin">10dp</dimen>
     <dimen name="artist_title_size">20sp</dimen>
 
+    <dimen name="song_image_dimen">50dp</dimen>
+
     <dimen name="default_padding">16dp</dimen>
 
     <dimen name="progress_size">45dp</dimen>

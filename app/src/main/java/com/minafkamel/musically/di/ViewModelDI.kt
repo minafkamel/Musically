@@ -9,5 +9,5 @@ import org.koin.dsl.module
 val viewModelModule = module {
     viewModel { MainViewModel() }
     viewModel { ArtistsViewModel(get(), get()) }
-    viewModel { (permalink : String) -> SongsViewModel(permalink, get() ) }
+    viewModel { (permalink: String) -> SongsViewModel(permalink, get(), get()) }
 }

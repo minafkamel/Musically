@@ -4,10 +4,10 @@ import androidx.core.view.isVisible
 import com.minafkamel.musically.R
 import com.minafkamel.musically.ui.base.BaseFragment
 import com.minafkamel.musically.ui.main.MainActivity
-import kotlinx.android.synthetic.main.f_artists.*
+import kotlinx.android.synthetic.main.f_recycler_view.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class ArtistsFragment : BaseFragment<ArtistsViewModel>(R.layout.f_artists) {
+class ArtistsFragment : BaseFragment<ArtistsViewModel>(R.layout.f_recycler_view) {
 
     private val viewModel: ArtistsViewModel by viewModel()
 
@@ -17,11 +17,11 @@ class ArtistsFragment : BaseFragment<ArtistsViewModel>(R.layout.f_artists) {
     }
 
     private fun handleProgress(show: Boolean) {
-        progressViewArtists.isVisible = show
+        progressView.isVisible = show
     }
 
     private fun showArtists(artists: List<ArtistViewEntity>) {
-        recyclerViewArtists.adapter = ArtistsAdapter(artists) { handleArtistClick(it) }
+        recyclerView.adapter = ArtistsAdapter(artists) { handleArtistClick(it) }
     }
 
     private fun handleArtistClick(artistId: String) {
