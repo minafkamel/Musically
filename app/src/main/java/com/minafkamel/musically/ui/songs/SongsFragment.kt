@@ -24,7 +24,7 @@ class SongsFragment : BaseFragment<SongsViewModel>(R.layout.f_recycler_view) {
     }
 
     private fun showSongs(songs: List<SongViewEntity>) {
-        recyclerView.adapter = SongsAdapter(songs) {}
+        recyclerView.adapter = SongsAdapter(songs) { viewModel.songSelected(it) }
     }
 
     override fun passViewModel() = viewModel
