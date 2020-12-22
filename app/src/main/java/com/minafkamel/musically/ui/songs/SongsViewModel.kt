@@ -17,6 +17,8 @@ class SongsViewModel(
     override fun onViewCreate() {
         getSongs.build(GetSongs.Params(permalink))
             .map { mapper.toModel(it) }
+            .doOnSubscribe { progressLiveData.postValue(true) }
+            .doAfterTerminate { progressLiveData.postValue(false) }
             .withDefaultSchedulers()
             .subscribeToDisposeLater({ songsLiveData.postValue(it) }, { it })
     }
