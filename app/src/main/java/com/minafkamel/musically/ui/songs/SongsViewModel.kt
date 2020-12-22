@@ -4,6 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import com.minafkamel.musically.domain.songs.GetSongs
 import com.minafkamel.musically.extensions.withDefaultSchedulers
 import com.minafkamel.musically.ui.base.BaseViewModel
+import timber.log.Timber
 
 class SongsViewModel(
     private val permalink: String,
@@ -20,6 +21,10 @@ class SongsViewModel(
             .doOnSubscribe { progressLiveData.postValue(true) }
             .doAfterTerminate { progressLiveData.postValue(false) }
             .withDefaultSchedulers()
-            .subscribeToDisposeLater({ songsLiveData.postValue(it) }, { it })
+            .subscribeToDisposeLater({ songsLiveData.postValue(it) }, { Timber.tag(TAG).e(it) })
+    }
+
+    companion object {
+        const val TAG = "SongsViewModel"
     }
 }
