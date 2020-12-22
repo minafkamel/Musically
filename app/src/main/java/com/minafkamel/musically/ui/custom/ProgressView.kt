@@ -16,6 +16,6 @@ class ProgressView @JvmOverloads constructor(
     init {
         layoutParams =
             LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT)
-        View.inflate(context, R.layout.i_progress_view, this)
+        View.inflate(context, R.layout.v_progress_view, this)
     }
 }
