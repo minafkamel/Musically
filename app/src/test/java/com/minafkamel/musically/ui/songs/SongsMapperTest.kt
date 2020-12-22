@@ -30,9 +30,10 @@ class SongsMapperTest : TestCase() {
         val title = "title"
         val duration = 600
         val thumb = "url"
-        val songsRaw = listOf(SongRaw(title, duration, thumb))
+        val streamUrl = "stream url"
+        val songsRaw = listOf(SongRaw(title, duration, thumb, streamUrl))
         val expectedSubtitle = "Duration: 60 minutes"
-        val expectedSongsViewEntities = listOf(SongViewEntity(title, expectedSubtitle, thumb))
+        val expectedSongsViewEntities = listOf(SongViewEntity(title, expectedSubtitle, thumb, streamUrl))
 
         val entities = mapper.toModel(songsRaw)
 

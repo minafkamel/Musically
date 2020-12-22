@@ -10,8 +10,8 @@ import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.i_song.*
 
 class SongsAdapter(
-    private val models: List<SongViewEntity>,
-    private val clickListener: () -> Unit
+    private val entities: List<SongViewEntity>,
+    private val clickListener: (Int) -> Unit
 ) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
@@ -20,22 +20,22 @@ class SongsAdapter(
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        (holder as SongViewHolder).onBind(models[position])
+        (holder as SongViewHolder).onBind(entities[position], position)
     }
 
-    override fun getItemCount() = models.size
+    override fun getItemCount() = entities.size
 
     class SongViewHolder(
         override val containerView: View,
-        private val clickListener: () -> Unit
+        private val clickListener: (Int) -> Unit
     ) :
         RecyclerView.ViewHolder(containerView), LayoutContainer {
-        fun onBind(model: SongViewEntity) {
-            itemView.setOnClickListener { clickListener.invoke() }
+        fun onBind(model: SongViewEntity, position: Int) {
+            itemView.setOnClickListener { clickListener.invoke(position) }
             textViewTitle.text = model.title
             textViewSubtitle.text = model.subtitle
             Picasso.get()
-                .load(model.url)
+                .load(model.imageUrl)
                 .fit()
                 .centerCrop()
                 .into(imageViewSong)

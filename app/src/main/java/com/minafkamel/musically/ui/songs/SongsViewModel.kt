@@ -24,6 +24,8 @@ class SongsViewModel(
             .subscribeToDisposeLater({ songsLiveData.postValue(it) }, { Timber.tag(TAG).e(it) })
     }
 
+    fun songSelected(permalink: String, songPosition: Int) {}
+
     companion object {
         const val TAG = "SongsViewModel"
     }

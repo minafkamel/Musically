@@ -1,3 +1,10 @@
 package com.minafkamel.musically.data
 
-class SongRaw(val title: String, val duration: Int, val thumb: String)
+import com.google.gson.annotations.SerializedName
+
+class SongRaw(
+    val title: String,
+    val duration: Int,
+    val thumb: String,
+    @SerializedName("stream_url") val streamUrl: String
+)

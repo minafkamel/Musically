@@ -8,11 +8,12 @@ import com.minafkamel.musically.util.StringProvider
 /**
  * Maps a list of [SongRaw] to a list of [SongViewEntity] and does any needed formatting
  */
-class SongsMapper(private val stringProvider: StringProvider) : Mapper<List<SongRaw>, List<SongViewEntity>> {
+class SongsMapper(private val stringProvider: StringProvider) :
+    Mapper<List<SongRaw>, List<SongViewEntity>> {
 
     override fun toModel(input: List<SongRaw>): List<SongViewEntity> {
         return input.map {
-            SongViewEntity(it.title, mapSubtitle(it.duration), it.thumb)
+            SongViewEntity(it.title, mapSubtitle(it.duration), it.thumb, it.streamUrl)
         }
     }
 
