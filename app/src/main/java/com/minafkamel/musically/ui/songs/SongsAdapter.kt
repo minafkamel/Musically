@@ -39,7 +39,7 @@ class SongsAdapter(
                 .into(imageViewSong)
 
             itemView.setOnClickListener {
-                clickListener.invoke(Pair(entity.title, entity.imageUrl))
+                clickListener.invoke(Pair(entity.title, entity.streamUrl))
             }
         }
     }

@@ -13,6 +13,7 @@
 
     <!--Streaming-->
     <dimen name="streaming_select_size">16sp</dimen>
+    <dimen name="streaming_image_size">50dp</dimen>
 
     <!--Other-->
     <dimen name="default_padding">16dp</dimen>
