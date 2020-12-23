@@ -51,7 +51,7 @@ class ArtistsViewModelTest : TestCase() {
         artistsViewModel.onViewCreate()
 
         verify(getArtists).build(NoParams)
-        verify(artistsMapper).toModel(artists)
+        verify(artistsMapper).map(artists)
         assertEquals(entities, artistsViewModel.artistsLiveData.value)
     }
 
@@ -62,7 +62,7 @@ class ArtistsViewModelTest : TestCase() {
         }
 
         fun withViewEntity(entities: List<ArtistViewEntity>) {
-            whenever(artistsMapper.toModel(any())).thenReturn(entities)
+            whenever(artistsMapper.map(any())).thenReturn(entities)
         }
     }
 }

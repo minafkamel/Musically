@@ -5,6 +5,7 @@ import com.minafkamel.musically.data.SongRaw
 import com.minafkamel.musically.domain.base.NoResult
 import com.minafkamel.musically.domain.songs.GetSongs
 import com.minafkamel.musically.domain.songs.SelectSong
+import com.minafkamel.musically.ui.songs.mapping.SongsMapper
 import com.nhaarman.mockitokotlin2.any
 import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.whenever
@@ -57,7 +58,7 @@ class SongsViewModelTest : TestCase() {
         songsViewModel.onViewCreate()
 
         verify(getSongs).build(GetSongs.Params(permalink))
-        verify(mapper).toModel(songs)
+        verify(mapper).map(songs)
         assertEquals(entities, songsViewModel.songsLiveData.value)
     }
 
@@ -80,7 +81,7 @@ class SongsViewModelTest : TestCase() {
         }
 
         fun withMappedEntities(entities: List<SongViewEntity>) = apply {
-            whenever(mapper.toModel(anyList())).thenReturn(entities)
+            whenever(mapper.map(anyList())).thenReturn(entities)
         }
 
         fun withSelectSong() = apply {

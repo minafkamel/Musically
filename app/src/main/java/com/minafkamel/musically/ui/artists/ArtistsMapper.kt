@@ -12,7 +12,7 @@ import com.minafkamel.musically.util.StringProvider
 class ArtistsMapper(private val stringProvider: StringProvider) :
     Mapper<List<Artist>, List<ArtistViewEntity>> {
 
-    override fun toModel(input: List<Artist>): List<ArtistViewEntity> {
+    override fun map(input: List<Artist>): List<ArtistViewEntity> {
         return input.map {
             ArtistViewEntity(
                 it.permalink,

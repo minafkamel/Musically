@@ -5,7 +5,7 @@
     <string name="artist_tracks_count">\u0020tracks</string>
 
     <!--Song-->
-    <string name="song_duration">Duration: %1$s minutes</string>
+    <string name="song_duration">Duration:\u0020</string>
 
     <!--Streaming-->
     <string name="streaming_select">Select an artist then a song to play</string>

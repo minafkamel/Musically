@@ -40,7 +40,7 @@ class ArtistsMapperTest : TestCase() {
             ArtistViewEntity(permalink, name, caption, description, expectedTracksString, url)
         )
 
-        val entity = mapper.toModel(artists)
+        val entity = mapper.map(artists)
 
         assertEquals(entities, entity)
     }

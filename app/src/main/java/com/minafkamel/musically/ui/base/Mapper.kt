@@ -8,5 +8,5 @@ interface Mapper<Input, Output> {
     /**
      * Mapping method
      */
-    fun toModel(input: Input): Output
+    fun map(input: Input): Output
 }

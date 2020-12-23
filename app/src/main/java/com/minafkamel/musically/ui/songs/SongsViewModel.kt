@@ -5,6 +5,7 @@ import com.minafkamel.musically.domain.songs.GetSongs
 import com.minafkamel.musically.domain.songs.SelectSong
 import com.minafkamel.musically.extensions.withDefaultSchedulers
 import com.minafkamel.musically.ui.base.BaseViewModel
+import com.minafkamel.musically.ui.songs.mapping.SongsMapper
 import timber.log.Timber
 
 class SongsViewModel(
@@ -19,7 +20,7 @@ class SongsViewModel(
 
     override fun onViewCreate() {
         getSongs.build(GetSongs.Params(permalink))
-            .map { mapper.toModel(it) }
+            .map { mapper.map(it) }
             .doOnSubscribe { progressLiveData.postValue(true) }
             .doAfterTerminate { progressLiveData.postValue(false) }
             .withDefaultSchedulers()

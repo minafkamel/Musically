@@ -17,7 +17,7 @@ class ArtistsViewModel(
 
     override fun onViewCreate() {
         getArtists.build(NoParams)
-            .map { artistsMapper.toModel(it) }
+            .map { artistsMapper.map(it) }
             .doOnSubscribe { progressLiveData.postValue(true) }
             .doAfterTerminate { progressLiveData.postValue(false) }
             .withDefaultSchedulers()
