@@ -8,7 +8,7 @@ import io.reactivex.disposables.CompositeDisposable
 
 /**
  * Base view model for all view models in the app.
- * Holds a [CompositeDisposable] that is cleared when view model is no longer in use.
+ * Holds a [CompositeDisposable] from [Rx] that is cleared when view model is no longer in use.
  */
 abstract class BaseViewModel : ViewModel(), LifecycleObserver, Rx {
 

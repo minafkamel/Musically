@@ -6,7 +6,7 @@ import com.minafkamel.musically.domain.base.UseCase
 import io.reactivex.Single
 
 /**
- * This use case calls retrieves the songs of a permalink via [FeedRepository]
+ * This use case retrieves the songs of a permalink via [FeedRepository]
  */
 class GetSongs(private val feedRepository: FeedRepository) :
     UseCase<GetSongs.Params, List<SongRaw>> {
