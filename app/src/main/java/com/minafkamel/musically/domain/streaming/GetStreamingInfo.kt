@@ -1,4 +1,4 @@
-package com.minafkamel.musically.domain.songs
+package com.minafkamel.musically.domain.streaming
 
 import com.minafkamel.musically.data.SelectionRepository
 import com.minafkamel.musically.domain.base.NoParams
@@ -9,7 +9,7 @@ import io.reactivex.Observable
  * This use case observes the publisher in [SelectionRepository]
  * and returns the emitted title and stream url pair
  */
-class GetSongStreamingInfo(
+class GetStreamingInfo(
     private val selectionRepository: SelectionRepository
 ) : ObservableUseCase<NoParams, Pair<String, String>> {
 
