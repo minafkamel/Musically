@@ -9,5 +9,5 @@ data class ArtistViewEntity(
     val subtitle: String,
     val description: String,
     val tracksCount: String,
-    val url: String
+    val imageUrl: String
 )

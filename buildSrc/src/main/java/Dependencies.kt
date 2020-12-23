@@ -28,7 +28,7 @@ object Versions {
     const val mockito = "3.4.6"
     const val mockitoKotlin = "2.2.0"
     const val junitExt = "1.1.1"
-    const val archComponentsTest= "1.1.0"
+    const val archComponentsTest = "1.1.0"
     const val timber = "4.7.1"
 
     // Other
@@ -39,7 +39,7 @@ object Versions {
     const val gson = "2.8.6"
     const val rxAndroid2 = "2.1.1"
     const val rxJava2 = "2.2.19"
-    const val picasso = 2.71828
+    const val glide = "4.11.0"
 }
 
 object Dependencies {
@@ -80,8 +80,9 @@ object Dependencies {
     const val rxAndroid = "io.reactivex.rxjava2:rxandroid:${Versions.rxAndroid2}"
     const val rxJava = "io.reactivex.rxjava2:rxjava:${Versions.rxJava2}"
 
-    // Picasso
-    const val picasso = "com.squareup.picasso:picasso:${Versions.picasso}"
+    // Glide
+    const val glide = "com.github.bumptech.glide:glide:${Versions.glide}"
+    const val glideCompiler = "com.github.bumptech.glide:compiler:${Versions.glide}"
 
     // Test
     const val junit = "junit:junit:${Versions.junit}"

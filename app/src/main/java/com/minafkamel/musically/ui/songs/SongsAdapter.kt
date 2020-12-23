@@ -3,9 +3,9 @@ package com.minafkamel.musically.ui.songs
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.minafkamel.musically.R
 import com.minafkamel.musically.extensions.inflate
-import com.squareup.picasso.Picasso
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.i_song.*
 
@@ -33,10 +33,9 @@ class SongsAdapter(
         fun onBind(entity: SongViewEntity) {
             textViewTitle.text = entity.title
             textViewSubtitle.text = entity.subtitle
-            Picasso.get()
+
+            Glide.with(containerView.context)
                 .load(entity.imageUrl)
-                .fit()
-                .centerCrop()
                 .into(imageViewSong)
 
             itemView.setOnClickListener {

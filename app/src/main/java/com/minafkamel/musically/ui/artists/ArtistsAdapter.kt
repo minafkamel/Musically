@@ -3,9 +3,9 @@ package com.minafkamel.musically.ui.artists
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.minafkamel.musically.R
 import com.minafkamel.musically.extensions.inflate
-import com.squareup.picasso.Picasso
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.i_artist.*
 
@@ -30,16 +30,15 @@ class ArtistsAdapter(
         private val clickListener: (String) -> Unit
     ) :
         RecyclerView.ViewHolder(containerView), LayoutContainer {
-        fun onBind(model: ArtistViewEntity) {
-            itemView.setOnClickListener { clickListener.invoke(model.permalink) }
-            textViewTitle.text = model.title
-            textViewDescription.text = model.description
-            textViewTracks.text = model.tracksCount
-            textViewSubtitle.text = model.subtitle
-            Picasso.get()
-                .load(model.url)
-                .fit()
-                .centerCrop()
+        fun onBind(entity: ArtistViewEntity) {
+            itemView.setOnClickListener { clickListener.invoke(entity.permalink) }
+            textViewTitle.text = entity.title
+            textViewDescription.text = entity.description
+            textViewTracks.text = entity.tracksCount
+            textViewSubtitle.text = entity.subtitle
+
+            Glide.with(containerView.context)
+                .load(entity.imageUrl)
                 .into(imageViewArtist)
         }
     }

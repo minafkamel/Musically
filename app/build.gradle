@@ -3,6 +3,7 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-android-extensions'
     id 'org.jetbrains.kotlin.android.extensions'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -58,7 +59,8 @@ dependencies {
 
     implementation Dependencies.gson
 
-    implementation Dependencies.picasso
+    implementation Dependencies.glide
+    kapt Dependencies.glideCompiler
 
     testImplementation Dependencies.junit
     testImplementation Dependencies.hamcrest
