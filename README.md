@@ -4,6 +4,17 @@
 |--|--|
 | Mina Kamel | Android Engineer  |
 
+## Table of Contents
+- [Musically](#musically)
+	- [Description](#description)
+	- [Architecture](#architecture)
+		- [The Data Layer](#the-data-layer)
+		- [The Domain Layer](#the-domain-layer)
+		- [The UI Layer](#the-ui-layer)
+		- [Mappers and Objects](#mappers-and-objects)
+		- [Utils and Extensions](#utils-and-extensions)
+		- [Unit Tests](#unit-tests)
+		- [Dependencies](#dependencies)
 
 ## Description
 
