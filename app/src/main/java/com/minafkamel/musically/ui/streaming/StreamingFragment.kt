@@ -34,9 +34,13 @@ class StreamingFragment : BaseFragment<StreamingViewModel>(R.layout.f_streaming)
         }
         mediaPlayer = MediaPlayer()
             .apply {
+                setOnPreparedListener {
+                    // Starting the media player when it is prepared.
+                    it.start()
+                }
                 setDataSource(streamUrl)
-                prepare()
-                start()
+                // When the media player is prepared as Async, it will not block the UI thread.
+                prepareAsync()
             }
     }
 
